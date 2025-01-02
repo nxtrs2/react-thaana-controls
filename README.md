@@ -1,6 +1,6 @@
-# react-thaana-input
+# react-thaana-controls
 
-A React library for easily handling Thaana input in forms, supporting both `<input>` and `<textarea>` fields.
+A React library for easily handling Thaana input in forms, currently supporting `<input>` and `<textarea>` fields.
 
 ## Features
 
@@ -13,12 +13,12 @@ A React library for easily handling Thaana input in forms, supporting both `<inp
 Install the library using npm or yarn:
 
 ```bash
-npm install react-thaana-input
+npm install react-thaana-controls
 # or
-yarn add react-thaana-input
+yarn add react-thaana-controls
 ```
 
-## Usage
+## Usage (currently available components)
 
 ### 1. ThaanaInput Component
 
@@ -26,7 +26,7 @@ The `ThaanaInput` component provides Thaana support for single-line text inputs.
 
 ```tsx
 import React, { useState } from 'react';
-import { ThaanaInput } from 'react-thaana-input';
+import { ThaanaInput } from 'react-thaana-controls';
 
 const App = () => {
   const [value, setValue] = useState('');
@@ -55,7 +55,7 @@ The `ThaanaTextarea` component provides Thaana support for multi-line text input
 
 ```tsx
 import React, { useState } from 'react';
-import { ThaanaTextarea } from 'react-thaana-input';
+import { ThaanaTextarea } from 'react-thaana-controls';
 
 const App = () => {
   const [text, setText] = useState('');
@@ -113,7 +113,7 @@ npm test
 
 ## Contributing
 
-Contributions are welcome! Feel free to submit issues and pull requests on the [GitHub repository](https://github.com/nxtrs2/react-thaana-input).
+Contributions are welcome! Feel free to submit issues and pull requests on the [GitHub repository](https://github.com/nxtrs2/react-thaana-controls).
 
 ---
 
