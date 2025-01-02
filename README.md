@@ -126,37 +126,6 @@ export default App;
 
 ---
 
-## Usage (currently available components)
-
-### 1. ThaanaInput Component
-
-The `ThaanaInput` component provides Thaana support for single-line text inputs.
-
-```tsx
-import React, { useState } from 'react';
-import { ThaanaInput } from 'react-thaana-controls';
-
-const App = () => {
-  const [value, setValue] = useState('');
-
-  return (
-    <div>
-      <h1>Thaana Input Example</h1>
-      <ThaanaInput
-        value={value}
-        onChange={setValue}
-        placeholder="ތާނަ އިމްޕުޓް"
-      />
-      <p>Current Value: {value}</p>
-    </div>
-  );
-};
-
-export default App;
-```
-
----
-
 ## Props
 
 ### Common Props for `ThaanaInput` and `ThaanaTextarea`
