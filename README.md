@@ -1,12 +1,39 @@
 # react-thaana-controls
 
-A React library for easily handling Thaana input in forms, currently supporting `<input>` and `<textarea>` fields.
+A React library for easily handling Thaana input in forms, currently supporting `<input>`, `<textarea>`, and form wrapper for grouped inputs.
 
 ## Features
 
-- Based on [thaana-keyboard](https://github.com/aharen/thaana-keyboard) by [aharen](https://github.com/aharen) which provides...
-- ...mapping of Latin characters to Thaana characters.
-- This implementation is (hopefully) lightweight and easy to integrate into any React project.
+- **Based on [thaana-keyboard](https://github.com/aharen/thaana-keyboard)** by [aharen](https://github.com/aharen):
+  - Provides mapping of Latin characters to Thaana characters.
+  - Supports special characters and ensures accurate Thaana input.
+- **Lightweight and easy to integrate** into any React project.
+- **Automatic Thaana input handling** for individual fields and entire forms:
+  - `<ThaanaInput>`: Seamless single-line Thaana input.
+  - `<ThaanaTextarea>`: Multi-line Thaana text input.
+  - `<ThaanaFormWrapper>`: Automatically applies Thaana input behavior to all fields in a form.
+
+---
+
+### Updated Features Overview
+
+1. **Individual Controls**:
+
+   - `<ThaanaInput>`: Provides seamless Thaana input for single-line fields.
+   - `<ThaanaTextarea>`: Supports Thaana input for multi-line fields.
+
+2. **Form Grouping**:
+
+   - `<ThaanaFormWrapper>`:
+     - Automatically applies `dir="rtl"` and character mapping for all child `<input>` and `<textarea>` fields.
+     - Simplifies form handling by centralizing `onChange` for grouped inputs.
+     - Dynamically supports fields added or removed from the DOM.
+
+3. **Thaana Mapping**:
+   - Supports Latin-to-Thaana character mapping out of the box.
+   - Handles special characters (e.g., `،`, `؟`, `؛`) for Thaana input.
+
+---
 
 ## Installation
 
@@ -18,11 +45,9 @@ npm install react-thaana-controls
 yarn add react-thaana-controls
 ```
 
-## Usage (currently available components)
+### Example Usage
 
-### 1. ThaanaInput Component
-
-The `ThaanaInput` component provides Thaana support for single-line text inputs.
+#### Thaana Input Example:
 
 ```tsx
 import React, { useState } from 'react';
@@ -34,11 +59,7 @@ const App = () => {
   return (
     <div>
       <h1>Thaana Input Example</h1>
-      <ThaanaInput
-        value={value}
-        onChange={setValue}
-        placeholder="ތާނަ އިމްޕުޓް"
-      />
+      <ThaanaInput value={value} onChange={setValue} placeholder="ތާނަ" />
       <p>Current Value: {value}</p>
     </div>
   );
@@ -79,6 +100,63 @@ export default App;
 
 ---
 
+#### Thaana Form Wrapper Example:
+
+```tsx
+import React, { useState } from 'react';
+import { ThaanaFormWrapper } from 'react-thaana-controls';
+
+const App = () => {
+  const [formData, setFormData] = useState({});
+
+  return (
+    <div>
+      <h1>Thaana Form Example</h1>
+      <ThaanaFormWrapper onChange={data => setFormData(data)}>
+        <input name="firstName" placeholder="ނަން" />
+        <textarea name="address" placeholder="ހުރިހާބު" />
+      </ThaanaFormWrapper>
+      <pre>{JSON.stringify(formData, null, 2)}</pre>
+    </div>
+  );
+};
+
+export default App;
+```
+
+---
+
+## Usage (currently available components)
+
+### 1. ThaanaInput Component
+
+The `ThaanaInput` component provides Thaana support for single-line text inputs.
+
+```tsx
+import React, { useState } from 'react';
+import { ThaanaInput } from 'react-thaana-controls';
+
+const App = () => {
+  const [value, setValue] = useState('');
+
+  return (
+    <div>
+      <h1>Thaana Input Example</h1>
+      <ThaanaInput
+        value={value}
+        onChange={setValue}
+        placeholder="ތާނަ އިމްޕުޓް"
+      />
+      <p>Current Value: {value}</p>
+    </div>
+  );
+};
+
+export default App;
+```
+
+---
+
 ## Props
 
 ### Common Props for `ThaanaInput` and `ThaanaTextarea`
@@ -90,6 +168,15 @@ export default App;
 | `placeholder` | `string`                  | No       | Placeholder text for the input/textarea. |
 | `style`       | `React.CSSProperties`     | No       | Inline styles for the input/textarea.    |
 | `disabled`    | `boolean`                 | No       | Disables the input/textarea when `true`. |
+
+---
+
+### Props for `ThaanaFormWrapper`
+
+| Prop       | Type                                         | Required | Description                                                                                                                                      |
+| ---------- | -------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `children` | `React.ReactNode`                            | Yes      | The child components (e.g., `<input>` and `<textarea>`) to be wrapped by the `ThaanaFormWrapper`.                                                |
+| `onChange` | `(formData: Record<string, string>) => void` | No       | Callback function triggered whenever any child input/textarea value changes. The callback receives an object containing the form's current data. |
 
 ---
 

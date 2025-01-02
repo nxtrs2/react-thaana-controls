@@ -6,3 +6,8 @@ export interface ThaanaInputProps {
   style?: React.CSSProperties;
   disabled?: boolean;
 }
+
+export interface ThaanaFormWrapperProps {
+  children: React.ReactNode;
+  onChange?: (formData: Record<string, string>) => void;
+}
