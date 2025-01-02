@@ -4,7 +4,7 @@ A React library for easily handling Thaana input in forms, supporting both `<inp
 
 ## Features
 
-- Based on [thaana-keyboard by aharen](https://github.com/aharen/thaana-keyboard) which provides...
+- Based on [thaana-keyboard](https://github.com/aharen/thaana-keyboard) by [aharen](https://github.com/aharen) which provides...
 - ...mapping of Latin characters to Thaana characters.
 - This implementation is (hopefully) lightweight and easy to integrate into any React project.
 
@@ -113,7 +113,7 @@ npm test
 
 ## Contributing
 
-Contributions are welcome! Feel free to submit issues and pull requests on the [GitHub repository](https://github.com/your-username/react-thaana-input).
+Contributions are welcome! Feel free to submit issues and pull requests on the [GitHub repository](https://github.com/nxtrs2/react-thaana-input).
 
 ---
 
